@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9d82df0b06da043a3e16edc0c0a446, type: 3}
+  m_Name: EncuentrodeHistorias
+  m_EditorClassIdentifier: 
+  title: Encuentro de Historias
+  year: 2024
+  artist: 0
+  technique: 0
+  sizes:
+  - {x: 100, y: 100}
+  img: {fileID: 21300000, guid: da2c75b0701d6ee4b9ee7dc152f94d5e, type: 3}
