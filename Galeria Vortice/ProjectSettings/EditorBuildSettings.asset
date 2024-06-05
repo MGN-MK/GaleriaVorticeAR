@@ -8,5 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Galer\xEDa V\xF3rtice/Scenes/S_AR.unity"
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Samples/EasyAR Sense Unity Plugin/4.6.3+3029.cb846598/WorldSensing
+      SurfaceTracking/Scenes/SurfaceTracking.unity
+    guid: 29d9671db051e914eabc94c5ff47ece2
   m_configObjects:
     EasyAR.Settings: {fileID: 11400000, guid: 0cfb5cd622347ba4c921cf31d77f3e5e, type: 2}

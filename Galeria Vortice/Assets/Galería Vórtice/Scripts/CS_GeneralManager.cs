@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class CS_GeneralManager : MonoBehaviour
 {
     public CS_Catalogue catalogue;
-    public GameObject ARItem, cathalogeUI, ARUI;
+    public GameObject ARItem, cathalogeUI, ARUI, mainMenuUI;
 
     private CS_ArtInfo selectedArt;
 
@@ -19,6 +19,7 @@ public class CS_GeneralManager : MonoBehaviour
         cathalogeUI.SetActive(false);
         ARUI.SetActive(true);
         ARItem.SetActive(true);
+        mainMenuUI.SetActive(false);
 
         //Set scale of the canvas object with the size of the selected art
         ARItem.GetComponent<MeshRenderer>().material.mainTexture = selectedArt.img.texture;
@@ -31,5 +32,20 @@ public class CS_GeneralManager : MonoBehaviour
         cathalogeUI.SetActive(true);
         ARUI.SetActive(false);
         ARItem.SetActive(false);
+        mainMenuUI.SetActive(false);
+    }
+
+    public void MainMenu()
+    {
+        //Actives and desactives the UIs
+        cathalogeUI.SetActive(false);
+        ARUI.SetActive(false);
+        ARItem.SetActive(false);
+        mainMenuUI.SetActive(true);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }
