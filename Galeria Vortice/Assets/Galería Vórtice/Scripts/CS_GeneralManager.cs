@@ -1,49 +1,87 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class CS_GeneralManager : MonoBehaviour
 {
+    public static CS_GeneralManager instance;
+
     public CS_Catalogue catalogue;
-    public GameObject ARItem, cathalogeUI, ARUI, mainMenuUI;
+    public GameObject ARItem;
+    public GameObject[] menus;
+    public Slider _musicSlider, _sfxSlider;
 
     private CS_ArtInfo selectedArt;
 
-    public void StartAR()
+    //If there is no Audio Manager, add this, otherwise, destroy this
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    //Starts the AR experience
+    public void AR()
     {
         //Set the current art from the cathaloge as the selected art
         selectedArt = catalogue.currentArt;
-
-        //Actives and desactives the UIs
-        cathalogeUI.SetActive(false);
-        ARUI.SetActive(true);
-        ARItem.SetActive(true);
-        mainMenuUI.SetActive(false);
 
         //Set scale of the canvas object with the size of the selected art
         ARItem.GetComponent<MeshRenderer>().material.mainTexture = selectedArt.img.texture;
         ARItem.transform.localScale = new Vector3(selectedArt.sizes[0].y / 100, selectedArt.sizes[0].x / 100, 0.05f);
     }
 
-    public void Cathalogue()
+    //Actives and deactives the UIs
+    public void ActiveUI(GameObject btn)
     {
-        //Actives and desactives the UIs
-        cathalogeUI.SetActive(true);
-        ARUI.SetActive(false);
-        ARItem.SetActive(false);
-        mainMenuUI.SetActive(false);
+        string tag = btn.tag;
+
+        foreach (var _menu in menus)
+        {
+            if( _menu.tag == tag)
+            {
+                _menu.SetActive(true);
+            }
+            else
+            {
+                _menu.SetActive(false);
+            }
+        }
     }
 
-    public void MainMenu()
+    //Mutes and unmutes the music
+    public void ToggleMusic()
     {
-        //Actives and desactives the UIs
-        cathalogeUI.SetActive(false);
-        ARUI.SetActive(false);
-        ARItem.SetActive(false);
-        mainMenuUI.SetActive(true);
+        CS_AudioManager.instance.ToggleMusic();
     }
 
+    //Mutes and unmutes the sfx
+    public void ToggleSFX()
+    {
+        CS_AudioManager.instance.ToggleSFX();
+    }
+
+    //Changes the music volume
+    public void MusicVolume()
+    {
+        CS_AudioManager.instance.MusicVolume(_musicSlider.value);
+    }
+
+    //Changes the sxf volume
+    public void SFXVolume()
+    {
+        CS_AudioManager.instance.SFXVolume(_sfxSlider.value);
+    }
+
+    //Closes the app (Add confirmation screen
     public void Exit()
     {
         Application.Quit();
