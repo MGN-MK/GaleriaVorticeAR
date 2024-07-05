@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,11 @@ public class CS_GeneralManager : MonoBehaviour
     public static CS_GeneralManager instance;
 
     public CS_Catalogue catalogue;
+    public CS_Gallery gallery;
     public GameObject ARItem;
     public GameObject[] menus;
     public Slider _musicSlider, _sfxSlider;
+    [SerializeField] Image showScreenshot;
 
     private CS_ArtInfo selectedArt;
 
@@ -57,6 +60,37 @@ public class CS_GeneralManager : MonoBehaviour
         }
     }
 
+    //Takes a screenshot
+    public void TakeScreenshot()
+    {
+        StartCoroutine(TakeandShowScreenshot());
+    }
+
+    //IEnumerator to set waiting times
+    private IEnumerator TakeandShowScreenshot()
+    {
+        yield return new WaitForEndOfFrame();
+
+        Texture2D screenshot = ScreenCapture.CaptureScreenshotAsTexture();
+
+        Texture2D newScreenshot = new Texture2D(screenshot.width, screenshot.height, TextureFormat.RGB24, false);
+        newScreenshot.SetPixels(screenshot.GetPixels());
+        newScreenshot.Apply();
+
+        Destroy(screenshot);
+
+        Sprite screenshotSprite = Sprite.Create(newScreenshot, new Rect(0, 0, newScreenshot.width, newScreenshot.height), new Vector2(0.5f, 0.5f));
+
+        showScreenshot.enabled = true;
+        showScreenshot.sprite = screenshotSprite;
+        gallery.AddToGallery(screenshotSprite);
+
+        yield return new WaitForSeconds(2);
+
+        showScreenshot.enabled = false;        
+    }
+
+    //From here is the settings menu
     //Mutes and unmutes the music
     public void ToggleMusic()
     {
@@ -81,7 +115,7 @@ public class CS_GeneralManager : MonoBehaviour
         CS_AudioManager.instance.SFXVolume(_sfxSlider.value);
     }
 
-    //Closes the app (Add confirmation screen
+    //Closes the app (Add confirmation screen)
     public void Exit()
     {
         Application.Quit();

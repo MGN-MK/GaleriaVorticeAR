@@ -26,8 +26,10 @@ public class CS_Catalogue : MonoBehaviour
     //Change showed art, value should be -1/+1
     public void ChangeArt(int value)
     {
+        //Adds the value(-1 or 1) to get the previus or next item
         index += value;
 
+        //Sets the index in case of get outside the array
         if(index < 0) { index = artCatalogue.Length -1; }
         if(index > artCatalogue.Length -1) { index = 0; }
 

@@ -9,36 +9,57 @@ using System.Data;
 public class CS_Gallery : MonoBehaviour
 {
     public string albumName;
+    public GameObject closeUp, screenshotPrfb, grid;
+    private List<CS_Screenshot> gallery;
     [SerializeField] Image showScreenshot;
-    public GameObject closeUpScreenshot, screenshotPrfb, gallery;
+    private int index = 0;
 
-    //Takes a screenshot
-    public void TakeScreenshot()
+    public void AddToGallery(Sprite _screenshot)
     {
-        StartCoroutine(TakeandShowScreenshot());
+        GameObject item = Instantiate(screenshotPrfb);
+
+        item.GetComponent<RectTransform>().SetParent(grid.transform); 
+        item.GetComponent<RectTransform>().localPosition = Vector3.zero;
+        item.GetComponent<RectTransform>().localScale = Vector3.one;
+        item.GetComponent<RectTransform>().localRotation = Quaternion.Euler(Vector3.zero);
+        item.GetComponent<Image>().sprite = _screenshot;
+
+        var element = item.GetComponent<CS_Screenshot>();
+        element.Set(_screenshot, gallery.Count);
+        gallery.Add(element);
     }
 
-    private IEnumerator TakeandShowScreenshot()
+    //Selects the screenshot from the tapped button to the closeup
+    public void SelectScreenshot(CS_Screenshot item)
     {
-        yield return new WaitForEndOfFrame();
+        index = item.id;
 
-        Texture2D screenshot = ScreenCapture.CaptureScreenshotAsTexture();
+        //Sets the closeUpScreenshot´s sprite with the one corresponding to the gallery
+        showScreenshot.sprite = gallery[index].image;
+        closeUp.SetActive(true);
+    }
 
-        Texture2D newScreenshot = new Texture2D(screenshot.width, screenshot.height, TextureFormat.RGB24, false);
-        newScreenshot.SetPixels(screenshot.GetPixels());
-        newScreenshot.Apply();
+    //On closeup changes with the next screenshot
+    public void ChangeScreenshot(int value)
+    {
+        //Adds the value(-1 or 1) to get the previus or next item
+        index += value;
 
-        Destroy(screenshot);
+        //Sets the index in case of get outside the array
+        if (index < 0) { index = gallery.Count - 1; }
+        if (index > gallery.Count - 1) { index = 0; }
 
-        Sprite screenshotSprite = Sprite.Create(newScreenshot, new Rect(0, 0, newScreenshot.width, newScreenshot.height), new Vector2(0.5f, 0.5f));
+        //Sets the closeUpScreenshot´s sprite with the one corresponding to the gallery
+        showScreenshot.sprite = gallery[index].image;
+    }
 
-        showScreenshot.enabled = true;
-        showScreenshot.sprite = screenshotSprite;
+    public void SaveScreenshot()
+    {
+        //NativeGallery.SaveImageToGallery(newScreenshot, albumName, "GVScreenshot_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".png");
+    }
 
-        yield return new WaitForSeconds(2);
-
-        showScreenshot.enabled = false;
-        NativeGallery.SaveImageToGallery(newScreenshot, albumName, "GVScreenshot_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".png");
-        Destroy(newScreenshot);
+    public void ReturnToGallery()
+    {
+        closeUp.SetActive(false);
     }
 }

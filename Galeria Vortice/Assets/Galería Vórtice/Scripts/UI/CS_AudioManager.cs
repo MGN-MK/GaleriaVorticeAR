@@ -32,7 +32,6 @@ public class CS_AudioManager : MonoBehaviour
         PlayMusic(BGMusic);
     }
 
-
     //To use any play in the script add CS_AudioManager.instance.PlayMusic("Name");
     //To stop in the script add CS_AudioManager.instance.musicSource.Stop();
     public void PlayMusic(string name)
@@ -79,12 +78,13 @@ public class CS_AudioManager : MonoBehaviour
         sfxSource.mute = !sfxSource.mute;
     }
 
-    //
+    //Changes the volume of the music
     public void MusicVolume(float volume)
     {
         musicSource.volume = volume * volume;
     }
 
+    //Changes the volume of the SFX
     public void SFXVolume(float volume)
     {
         sfxSource.volume = volume * volume;
