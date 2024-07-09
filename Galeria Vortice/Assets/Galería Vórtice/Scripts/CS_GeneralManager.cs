@@ -83,11 +83,11 @@ public class CS_GeneralManager : MonoBehaviour
 
         showScreenshot.enabled = true;
         showScreenshot.sprite = screenshotSprite;
-        gallery.AddToGallery(screenshotSprite);
 
         yield return new WaitForSeconds(2);
 
-        showScreenshot.enabled = false;        
+        showScreenshot.enabled = false;
+        gallery.AddToGallery(screenshotSprite);               
     }
 
     //From here is the settings menu

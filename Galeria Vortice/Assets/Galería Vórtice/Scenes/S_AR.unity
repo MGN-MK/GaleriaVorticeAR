@@ -1207,7 +1207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catalogue: {fileID: 820407720}
-  gallery: {fileID: 1781111740}
+  gallery: {fileID: 776268169}
   ARItem: {fileID: 223974226}
   menus:
   - {fileID: 529066262}
@@ -3418,6 +3418,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 715116091}
   m_CullTransparentMesh: 1
+--- !u!1 &776268167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 776268168}
+  - component: {fileID: 776268169}
+  m_Layer: 5
+  m_Name: GalleryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &776268168
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776268167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1781111737}
+  m_Father: {fileID: 782628379}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &776268169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776268167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b005c69551ac63548a46b2bfc2498aa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  albumName: "Galer\xEDa V\xF3rtice"
+  closeUp: {fileID: 1136195948}
+  screenshotPrfb: {fileID: 6850952928405010574, guid: 936989aa6d325c04d8c144d6367afbf6, type: 3}
+  grid: {fileID: 1914198214}
+  gallery:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  showScreenshot: {fileID: 288469955}
 --- !u!1 &779833893
 GameObject:
   m_ObjectHideFlags: 0
@@ -3595,7 +3674,7 @@ RectTransform:
   - {fileID: 529066263}
   - {fileID: 820407717}
   - {fileID: 1218059916}
-  - {fileID: 1781111737}
+  - {fileID: 776268168}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5290,7 +5369,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1781111740}
+      - m_Target: {fileID: 776268169}
         m_TargetAssemblyTypeName: CS_Gallery, Assembly-CSharp
         m_MethodName: SaveScreenshot
         m_Mode: 1
@@ -6739,7 +6818,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1781111740}
+      - m_Target: {fileID: 776268169}
         m_TargetAssemblyTypeName: CS_Gallery, Assembly-CSharp
         m_MethodName: ReturnToGallery
         m_Mode: 1
@@ -7591,7 +7670,6 @@ GameObject:
   - component: {fileID: 1781111737}
   - component: {fileID: 1781111739}
   - component: {fileID: 1781111738}
-  - component: {fileID: 1781111740}
   m_Layer: 5
   m_Name: GalleryMenu
   m_TagString: Gallery
@@ -7615,12 +7693,12 @@ RectTransform:
   - {fileID: 1848328960}
   - {fileID: 1914198215}
   - {fileID: 1136195949}
-  m_Father: {fileID: 782628379}
+  m_Father: {fileID: 776268168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 40, y: 40}
+  m_SizeDelta: {x: 1080, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1781111738
 MonoBehaviour:
@@ -7660,23 +7738,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781111736}
   m_CullTransparentMesh: 1
---- !u!114 &1781111740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781111736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b005c69551ac63548a46b2bfc2498aa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  albumName: "Galer\xEDa V\xF3rtice"
-  closeUp: {fileID: 1136195948}
-  screenshotPrfb: {fileID: 6850952928405010574, guid: 936989aa6d325c04d8c144d6367afbf6, type: 3}
-  grid: {fileID: 1914198214}
-  showScreenshot: {fileID: 288469955}
 --- !u!1 &1784460751
 GameObject:
   m_ObjectHideFlags: 0
@@ -8116,9 +8177,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 820407720}
-        m_TargetAssemblyTypeName: CS_Catalogue, Assembly-CSharp
-        m_MethodName: ChangeArt
+      - m_Target: {fileID: 776268169}
+        m_TargetAssemblyTypeName: CS_Gallery, Assembly-CSharp
+        m_MethodName: ChangeScreenshot
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9118,9 +9179,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 820407720}
-        m_TargetAssemblyTypeName: CS_Catalogue, Assembly-CSharp
-        m_MethodName: ChangeArt
+      - m_Target: {fileID: 776268169}
+        m_TargetAssemblyTypeName: CS_Gallery, Assembly-CSharp
+        m_MethodName: ChangeScreenshot
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

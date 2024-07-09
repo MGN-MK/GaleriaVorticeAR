@@ -11,4 +11,9 @@ public class CS_Screenshot : MonoBehaviour
         image = _img;
         id = _id;
     }
+
+    public void OnClick()
+    {
+        FindObjectOfType<CS_Gallery>().SelectScreenshot(this);
+    }
 }
