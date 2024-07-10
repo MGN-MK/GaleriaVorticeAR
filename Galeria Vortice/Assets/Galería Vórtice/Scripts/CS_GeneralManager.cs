@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +11,10 @@ public class CS_GeneralManager : MonoBehaviour
 
     public CS_Catalogue catalogue;
     public CS_Gallery gallery;
-    public GameObject ARItem;
+    public GameObject ARItem, ARUI, screenshotInfo;
     public GameObject[] menus;
     public Slider _musicSlider, _sfxSlider;
+    public TextMeshProUGUI titletxt, yeartxt, artisttxt, techniquetxt, sizetxt;
     [SerializeField] Image showScreenshot;
 
     private CS_ArtInfo selectedArt;
@@ -37,6 +39,17 @@ public class CS_GeneralManager : MonoBehaviour
         CS_AudioManager.instance.PlaySFX("UI");
         //Set the current art from the cathaloge as the selected art
         selectedArt = catalogue.currentArt;
+
+        if (selectedArt != null)
+        {
+            //Update the text data to show
+            titletxt.text = "Título: " + selectedArt.title;
+            yeartxt.text = "Año: " + selectedArt.year.ToString();
+            artisttxt.text = "Artista: " + selectedArt.artist.ToString().Replace("_", " ");
+            techniquetxt.text = "Técnica: " + selectedArt.technique.ToString().Replace("_", " ");
+            sizetxt.text = "Tamaño: " + selectedArt.sizes[0].x + " cm x " + selectedArt.sizes[0].y + " cm";
+            sizetxt.text = "Tamaño: " + selectedArt.sizes[0].x + " cm x " + selectedArt.sizes[0].y + " cm";
+        }
 
         //Set scale of the canvas object with the size of the selected art
         ARItem.GetComponent<MeshRenderer>().material.mainTexture = selectedArt.img.texture;
@@ -66,15 +79,17 @@ public class CS_GeneralManager : MonoBehaviour
     public void TakeScreenshot()
     {
         CS_AudioManager.instance.PlaySFX("Screenshot");
+        ARUI.SetActive(false);
+        screenshotInfo.SetActive(true);
         StartCoroutine(TakeandShowScreenshot());
     }
 
     //IEnumerator to set waiting times
     private IEnumerator TakeandShowScreenshot()
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();             
 
-        Texture2D screenshot = ScreenCapture.CaptureScreenshotAsTexture();
+        Texture2D screenshot = ScreenCapture.CaptureScreenshotAsTexture();        
 
         Texture2D newScreenshot = new Texture2D(screenshot.width, screenshot.height, TextureFormat.RGB24, false);
         newScreenshot.SetPixels(screenshot.GetPixels());
@@ -83,6 +98,9 @@ public class CS_GeneralManager : MonoBehaviour
         Destroy(screenshot);
 
         Sprite screenshotSprite = Sprite.Create(newScreenshot, new Rect(0, 0, newScreenshot.width, newScreenshot.height), new Vector2(0.5f, 0.5f));
+
+        screenshotInfo.SetActive(false);
+        ARUI.SetActive(true);
 
         showScreenshot.enabled = true;
         showScreenshot.sprite = screenshotSprite;
