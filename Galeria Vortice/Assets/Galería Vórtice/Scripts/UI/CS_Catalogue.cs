@@ -26,6 +26,8 @@ public class CS_Catalogue : MonoBehaviour
     //Change showed art, value should be -1/+1
     public void ChangeArt(int value)
     {
+        CS_AudioManager.instance.PlaySFX("UI");
+
         //Adds the value(-1 or 1) to get the previus or next item
         index += value;
 

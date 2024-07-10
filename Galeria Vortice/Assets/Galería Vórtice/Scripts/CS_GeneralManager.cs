@@ -17,7 +17,7 @@ public class CS_GeneralManager : MonoBehaviour
 
     private CS_ArtInfo selectedArt;
 
-    //If there is no Audio Manager, add this, otherwise, destroy this
+    //If there is no General Manager, add this, otherwise, destroy this
     private void Awake()
     {
         if(instance == null)
@@ -34,6 +34,7 @@ public class CS_GeneralManager : MonoBehaviour
     //Starts the AR experience
     public void AR()
     {
+        CS_AudioManager.instance.PlaySFX("UI");
         //Set the current art from the cathaloge as the selected art
         selectedArt = catalogue.currentArt;
 
@@ -45,6 +46,7 @@ public class CS_GeneralManager : MonoBehaviour
     //Actives and deactives the UIs
     public void ActiveUI(GameObject btn)
     {
+        CS_AudioManager.instance.PlaySFX("UI");
         string tag = btn.tag;
 
         foreach (var _menu in menus)
@@ -63,6 +65,7 @@ public class CS_GeneralManager : MonoBehaviour
     //Takes a screenshot
     public void TakeScreenshot()
     {
+        CS_AudioManager.instance.PlaySFX("Screenshot");
         StartCoroutine(TakeandShowScreenshot());
     }
 
@@ -118,6 +121,7 @@ public class CS_GeneralManager : MonoBehaviour
     //Closes the app (Add confirmation screen)
     public void Exit()
     {
+        CS_AudioManager.instance.PlaySFX("UI");
         Application.Quit();
     }
 }

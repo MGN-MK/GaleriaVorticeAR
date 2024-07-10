@@ -76,6 +76,7 @@ public class CS_AudioManager : MonoBehaviour
     public void ToggleSFX()
     {
         sfxSource.mute = !sfxSource.mute;
+        instance.PlaySFX("UI");
     }
 
     //Changes the volume of the music
