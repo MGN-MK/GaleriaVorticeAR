@@ -133,8 +133,9 @@ public class CS_GeneralManager : MonoBehaviour
     //Changes the sxf volume
     public void SFXVolume()
     {
-        CS_AudioManager.instance.SFXVolume(_sfxSlider.value);
+        CS_AudioManager.instance.SFXVolume(_sfxSlider.value);        
     }
+
 
     //Closes the app (Add confirmation screen)
     public void Exit()
@@ -142,4 +143,5 @@ public class CS_GeneralManager : MonoBehaviour
         CS_AudioManager.instance.PlaySFX("UI");
         Application.Quit();
     }
+
 }

@@ -14,15 +14,26 @@ public class CS_Gallery : MonoBehaviour
     [SerializeField] Image showScreenshot;
     private int galleryCount = 0;
     private int index = 0;
+    private GameObject item;
 
     public void AddToGallery(Sprite _screenshot)
     {
-        GameObject item = Instantiate(screenshotPrfb);
+        
 
-        item.GetComponent<RectTransform>().SetParent(grid.transform); 
-        item.GetComponent<RectTransform>().localPosition = Vector3.zero;
-        item.GetComponent<RectTransform>().localScale = Vector3.one;
-        item.GetComponent<RectTransform>().localRotation = Quaternion.Euler(Vector3.zero);
+        if (gallery[galleryCount] == null)
+        {
+            item = Instantiate(screenshotPrfb);
+
+            item.GetComponent<RectTransform>().SetParent(grid.transform);
+            item.GetComponent<RectTransform>().localPosition = Vector3.zero;
+            item.GetComponent<RectTransform>().localScale = Vector3.one;
+            item.GetComponent<RectTransform>().localRotation = Quaternion.Euler(Vector3.zero);
+        }
+        else
+        {
+            item = gallery[galleryCount].gameObject;
+        }
+        
         item.GetComponent<Image>().sprite = _screenshot;
 
         var element = item.GetComponent<CS_Screenshot>();        
@@ -150,6 +161,7 @@ public class CS_Gallery : MonoBehaviour
             {
                 item.id = tempIndex;
                 tempIndex++;
+                galleryCount = tempIndex;
             }
         }
 
