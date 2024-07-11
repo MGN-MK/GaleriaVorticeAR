@@ -10,7 +10,7 @@ public class CS_GalleryManager : MonoBehaviour
 {
     public string albumName;
     public GameObject closeUp, screenshotPrfb, grid;
-    public CS_Screenshot[] gallery;
+    public CS_Screenshot[] gallery = new CS_Screenshot[24];
     [SerializeField] Image showScreenshot;
     public int galleryCount = 0;
     private int index = 0;
@@ -127,7 +127,10 @@ public class CS_GalleryManager : MonoBehaviour
     //Saves the screenshot in the device
     public void SaveScreenshot()
     {
+        //Play the sfx for save
         CS_AudioManager.instance.PlaySFX("Save");
+
+        //Actually saves the image
         NativeGallery.SaveImageToGallery(gallery[index].image.texture, albumName, "GVScreenshot_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".png");
     }
 

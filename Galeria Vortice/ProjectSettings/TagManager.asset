@@ -10,6 +10,7 @@ TagManager:
   - Settings
   - Credits
   - Gallery
+  - ExitConfirm
   layers:
   - Default
   - TransparentFX

@@ -6,7 +6,7 @@ using UnityEngine;
 public class AppData
 {
     //To save the elements in the gallery
-    public CS_Screenshot[] galleryItems = new CS_Screenshot[24];
+    public Sprite[] galleryItems = new Sprite[24];
 
     //To save the elements fo the audio system
     public bool musicOn, sfxOn;
@@ -14,8 +14,13 @@ public class AppData
 
     public AppData (CS_GalleryManager SaveGallery, CS_AudioManager SaveAudio)
     {
-        //Save the gallery
-        galleryItems = SaveGallery.gallery;
+        for (int i = 0; i < galleryItems.Length; i++)
+        {
+            if(galleryItems[i] != null)
+            {
+                galleryItems[i] = SaveGallery.gallery[i].image;
+            }
+        }
 
         //Save the audio config
         musicOn = SaveAudio.musicSource.mute;

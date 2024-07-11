@@ -45,7 +45,7 @@ namespace SurfaceTracking
             }
             else
             {
-                BackButton.gameObject.SetActive(false);
+                //BackButton.gameObject.SetActive(false);
             }
 
 #if UNITY_ANDROID && !UNITY_EDITOR

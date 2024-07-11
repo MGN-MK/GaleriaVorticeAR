@@ -51,13 +51,12 @@ public class CS_GeneralManager : MonoBehaviour
         //If there is a save file, loads it
         if (data != null)
         {
-
             //Loads the gallery data
             foreach (var sc in data.galleryItems)
             {
-                if (sc.image != null)
+                if (sc != null)
                 {
-                    gallery.AddToGallery(sc.image);
+                    gallery.AddToGallery(sc);
                 }
             }
 
@@ -122,7 +121,6 @@ public class CS_GeneralManager : MonoBehaviour
         ARUI.SetActive(false);
         screenshotInfo.SetActive(true);
         StartCoroutine(TakeandShowScreenshot());
-
         Save();
     }
 
@@ -150,7 +148,7 @@ public class CS_GeneralManager : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         showScreenshot.enabled = false;
-        gallery.AddToGallery(screenshotSprite);               
+        gallery.AddToGallery(screenshotSprite);        
     }
 
     //From here is the settings menu
