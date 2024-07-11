@@ -6,13 +6,13 @@ using System.IO;
 using System;
 using System.Data;
 
-public class CS_Gallery : MonoBehaviour
+public class CS_GalleryManager : MonoBehaviour
 {
     public string albumName;
     public GameObject closeUp, screenshotPrfb, grid;
     public CS_Screenshot[] gallery;
     [SerializeField] Image showScreenshot;
-    private int galleryCount = 0;
+    public int galleryCount = 0;
     private int index = 0;
     private GameObject item;
 
@@ -51,9 +51,9 @@ public class CS_Gallery : MonoBehaviour
     }
 
     //Selects the screenshot from the tapped button to the closeup
-    public void SelectScreenshot(CS_Screenshot item)
+    public void SelectScreenshot(CS_Screenshot screenshot)
     {
-        index = item.id;
+        index = screenshot.id;
 
         //Sets the closeUpScreenshot´s sprite with the one corresponding to the gallery
         showScreenshot.sprite = gallery[index].image;
@@ -142,6 +142,7 @@ public class CS_Gallery : MonoBehaviour
     public void DeleteScreenshot()
     {
         StartCoroutine("Delete");
+        CS_GeneralManager.instance.Save();
     }
 
     //

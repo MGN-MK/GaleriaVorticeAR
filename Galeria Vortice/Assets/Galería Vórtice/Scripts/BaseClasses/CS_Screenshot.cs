@@ -15,6 +15,6 @@ public class CS_Screenshot : MonoBehaviour
     public void OnClick()
     {
         CS_AudioManager.instance.PlaySFX("UI");
-        FindObjectOfType<CS_Gallery>().SelectScreenshot(this);
+        FindObjectOfType<CS_GalleryManager>().SelectScreenshot(this);
     }
 }

@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CS_Catalogue : MonoBehaviour
+public class CS_CatalogueManager : MonoBehaviour
 {
     public CS_ArtInfo[] artCatalogue;
 

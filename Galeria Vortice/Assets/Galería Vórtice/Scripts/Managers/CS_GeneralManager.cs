@@ -9,11 +9,12 @@ public class CS_GeneralManager : MonoBehaviour
 {
     public static CS_GeneralManager instance;
 
-    public CS_Catalogue catalogue;
-    public CS_Gallery gallery;
+    public CS_CatalogueManager catalogue;
+    public CS_GalleryManager gallery;
     public GameObject ARItem, ARUI, screenshotInfo;
     public GameObject[] menus;
     public Slider _musicSlider, _sfxSlider;
+    public Toggle _musicToggle, _sfxToggle;
     public TextMeshProUGUI titletxt, yeartxt, artisttxt, techniquetxt, sizetxt;
     [SerializeField] Image showScreenshot;
 
@@ -30,6 +31,45 @@ public class CS_GeneralManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+
+        Load();
+    }
+
+    //Saves gallery data
+    public void Save()
+    {
+        CS_SaveSystem.SaveAppData(gallery, CS_AudioManager.instance);
+    }
+
+    //Loads gallery data
+    public void Load()
+    {
+        //Search a save file of type .gvs to load
+        AppData data = CS_SaveSystem.LoadAppData();
+
+        //If there is a save file, loads it
+        if (data != null)
+        {
+
+            //Loads the gallery data
+            foreach (var sc in data.galleryItems)
+            {
+                if (sc.image != null)
+                {
+                    gallery.AddToGallery(sc.image);
+                }
+            }
+
+            //Loads the audio system data
+            CS_AudioManager.instance.musicSource.mute = data.musicOn;
+            CS_AudioManager.instance.musicSource.volume = data.musicVolume;
+            _musicToggle.isOn = data.musicOn;
+            _musicSlider.value = data.musicVolume;
+            CS_AudioManager.instance.sfxSource.mute = data.sfxOn;
+            CS_AudioManager.instance.sfxSource.volume = data.sfxVolume;
+            _sfxToggle.isOn = data.sfxOn;
+            _sfxSlider.value = data.sfxVolume;
         }
     }
 
@@ -82,6 +122,8 @@ public class CS_GeneralManager : MonoBehaviour
         ARUI.SetActive(false);
         screenshotInfo.SetActive(true);
         StartCoroutine(TakeandShowScreenshot());
+
+        Save();
     }
 
     //IEnumerator to set waiting times
