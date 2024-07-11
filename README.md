@@ -5,7 +5,7 @@ Galería Vórtice // Montserrat Godinez Núñez // Parcial 02 // 08-07-2024
 Esta es una app para la Galería Vórtice de realidad aumentada, dentro de la cual se puede acceder a un catálogo de obras con la información de las mismas, estas verlas con realidad aumentada dentro de tu espacio (Se requieren permiso para acceder a la cámara).
 
 <aside>
-⚠️ Esta app de momento solo está disponible como **apk**, por lo que funciona únicamente en dispositivos **Android 8.0 ‘Oreo’ API level 26** o superior.
+⚠️ Esta app de momento solo está disponible como **apk** , por lo que funciona únicamente en dispositivos **Android 8.0 Oreo API level 26** o superior.
 
 </aside>
 
@@ -51,7 +51,7 @@ Esta es una app para la Galería Vórtice de realidad aumentada, dentro de la cu
     
 - Ajustes de música y efectos de sonido.
     
-    Uso de un Audio Manager**.**
+    Uso de un Audio Manager.
     
 - Botón para cerrar la aplicación.
 
