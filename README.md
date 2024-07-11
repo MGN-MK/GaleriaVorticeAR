@@ -21,7 +21,7 @@ Esta es una app para la Galería Vórtice de realidad aumentada, dentro de la cu
 - [Ajustes](https://www.notion.so/Ajustes-7ab1b017d66a4a3192c9ce285bab0db3?pvs=21)
 - [Salir](https://www.notion.so/Salir-f60bea4cd6d74b37968f9df384c64bf9?pvs=21)
 - [Experiencia en Realidad Aumentada](https://www.notion.so/Experiencia-en-Realidad-Aumentada-887bdf27f6894253958ad4531ea4d53a?pvs=21)
-- [Native Gallery](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21)(https://www.notion.so/Native-Gallery-8d068ee1f9fd4651bd39e8cf737e931b?pvs=21)
+- [Native Gallery](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21)
     - [Guardar las capturas de pantalla en el dispositivo.](https://www.notion.so/Guardar-las-capturas-de-pantalla-en-el-dispositivo-95f36c597fd64259a65e845aed4517ac?pvs=21)
 - [Sistema de Sonido](https://www.notion.so/Sistema-de-Sonido-f4f6183c75464146b93f200a7c2bc6f9?pvs=21)
     - [Lista de Música y Efectos de Sonido](https://www.notion.so/Lista-de-M-sica-y-Efectos-de-Sonido-a341b01984c043cbace1b4451eccf233?pvs=21)
