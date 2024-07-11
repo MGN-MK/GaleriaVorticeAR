@@ -1352,6 +1352,8 @@ MonoBehaviour:
   - {fileID: 1218059915}
   _musicSlider: {fileID: 435795437}
   _sfxSlider: {fileID: 1272980855}
+  _musicToggle: {fileID: 0}
+  _sfxToggle: {fileID: 0}
   titletxt: {fileID: 1687807940}
   yeartxt: {fileID: 1121350194}
   artisttxt: {fileID: 440793081}
@@ -3954,6 +3956,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   showScreenshot: {fileID: 288469955}
+  galleryCount: 0
+  index: 0
+  item: {fileID: 0}
 --- !u!1 &779833893
 GameObject:
   m_ObjectHideFlags: 0
@@ -4322,7 +4327,10 @@ MonoBehaviour:
   techniquetxt: {fileID: 294787930}
   sizetxt: {fileID: 496228983}
   image: {fileID: 1325593830}
+  index: 0
   currentArt: {fileID: 0}
+  x: 0
+  y: 0
 --- !u!1 &854905462
 GameObject:
   m_ObjectHideFlags: 0
