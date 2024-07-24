@@ -37,16 +37,26 @@ public class CS_GeneralManager : MonoBehaviour
     }
 
     //Saves gallery data
-    public void Save()
+    public void Save(Texture2D tex)
     {
-        CS_SaveSystem.SaveAppData(gallery, CS_AudioManager.instance);
+        CS_SaveSystem.SaveTexture(tex);    
+
+        //CS_SaveSystem.SaveAppData(gallery, CS_AudioManager.instance);
     }
 
     //Loads gallery data
     public void Load()
     {
+        Texture2D loaded = CS_SaveSystem.LoadTexture();
+        if (loaded != null)
+        {
+            Sprite NS = Sprite.Create(loaded, new Rect(0, 0, loaded.width, loaded.height), new Vector2(0.5f, 0.5f));
+            gallery.AddToGallery(NS);
+        }
+
+        /*
         //Search a save file of type .gvs to load
-        AppData data = CS_SaveSystem.LoadAppData();
+        AppData data = CS_SaveSystem.LoadAppData();        
 
         //If there is a save file, loads it
         if (data != null)
@@ -56,11 +66,16 @@ public class CS_GeneralManager : MonoBehaviour
             {
                 if (sc != null)
                 {
-                    gallery.AddToGallery(sc);
+                    Texture2D tex = new Texture2D(sc.width, sc.height, sc.format, false);
+                    tex.LoadRawTextureData(sc.data);
+                    tex.Apply();
+
+                    Sprite screenshotSprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
+                    gallery.AddToGallery(screenshotSprite);
                 }
             }
 
-            //Loads the audio system data
+            Loads the audio system data
             CS_AudioManager.instance.musicSource.mute = data.musicOn;
             CS_AudioManager.instance.musicSource.volume = data.musicVolume;
             _musicToggle.isOn = data.musicOn;
@@ -68,8 +83,8 @@ public class CS_GeneralManager : MonoBehaviour
             CS_AudioManager.instance.sfxSource.mute = data.sfxOn;
             CS_AudioManager.instance.sfxSource.volume = data.sfxVolume;
             _sfxToggle.isOn = data.sfxOn;
-            _sfxSlider.value = data.sfxVolume;
-        }
+            _sfxSlider.value = data.sfxVolume;        
+        }*/
     }
 
     //Starts the AR experience
@@ -121,7 +136,6 @@ public class CS_GeneralManager : MonoBehaviour
         ARUI.SetActive(false);
         screenshotInfo.SetActive(true);
         StartCoroutine(TakeandShowScreenshot());
-        Save();
     }
 
     //IEnumerator to set waiting times
@@ -144,6 +158,7 @@ public class CS_GeneralManager : MonoBehaviour
 
         showScreenshot.enabled = true;
         showScreenshot.sprite = screenshotSprite;
+        Save(newScreenshot);
 
         yield return new WaitForSeconds(2);
 

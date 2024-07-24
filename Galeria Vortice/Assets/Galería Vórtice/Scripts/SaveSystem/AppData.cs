@@ -6,11 +6,28 @@ using UnityEngine;
 public class AppData
 {
     //To save the elements in the gallery
-    public Sprite[] galleryItems = new Sprite[24];
+    public TextureData[] galleryItems = new TextureData[24];
 
     //To save the elements fo the audio system
     public bool musicOn, sfxOn;
     public float musicVolume, sfxVolume;
+
+    public TextureData SaveIMG(Texture2D img)
+    {
+        //Convert texture to bytes
+        byte[] textureBytes = img.EncodeToPNG();
+
+        //Create an object of type Te
+        TextureData textureData = new TextureData
+        {
+            data = textureBytes,
+            width = img.width,
+            height = img.height,
+            format = img.format,
+        };
+        
+        return textureData;
+    }
 
     public AppData (CS_GalleryManager SaveGallery, CS_AudioManager SaveAudio)
     {
@@ -18,7 +35,7 @@ public class AppData
         {
             if(galleryItems[i] != null)
             {
-                galleryItems[i] = SaveGallery.gallery[i].image;
+                galleryItems[i] = SaveIMG(SaveGallery.gallery[i].image.texture);
             }
         }
 
@@ -28,4 +45,13 @@ public class AppData
         musicVolume = SaveAudio.musicSource.volume;
         sfxVolume = SaveAudio.sfxSource.volume;
     }
+
+}
+
+[System.Serializable]
+public class TextureData
+{
+    public byte[] data;
+    public int width, height;
+    public TextureFormat format;
 }

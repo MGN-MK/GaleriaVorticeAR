@@ -145,7 +145,7 @@ public class CS_GalleryManager : MonoBehaviour
     public void DeleteScreenshot()
     {
         StartCoroutine("Delete");
-        CS_GeneralManager.instance.Save();
+        //CS_GeneralManager.instance.Save();
     }
 
     //
