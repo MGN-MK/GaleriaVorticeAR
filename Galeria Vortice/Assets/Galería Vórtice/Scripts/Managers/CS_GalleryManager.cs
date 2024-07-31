@@ -152,6 +152,8 @@ public class CS_GalleryManager : MonoBehaviour
     private IEnumerator Delete()
     {
         CS_AudioManager.instance.PlaySFX("Erase");
+        Handheld.Vibrate();
+        CS_SaveSystem.DeleteFile(index);
         Destroy(gallery[index].gameObject);
         showScreenshot.color = Color.gray;
 

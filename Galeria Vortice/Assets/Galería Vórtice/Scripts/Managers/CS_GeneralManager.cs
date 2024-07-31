@@ -31,60 +31,63 @@ public class CS_GeneralManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
+        }        
+    }
 
+    private void Start()
+    {
         Load();
     }
 
     //Saves gallery data
-    public void Save(Texture2D tex)
+    public void Save(Texture2D tex, int i)
     {
-        CS_SaveSystem.SaveTexture(tex);    
+        //CS_SaveSystem.SaveAppData(CS_AudioManager.instance);
 
-        //CS_SaveSystem.SaveAppData(gallery, CS_AudioManager.instance);
+        CS_SaveSystem.SaveTexture(tex, i);    
     }
 
     //Loads gallery data
     public void Load()
-    {
-        Texture2D loaded = CS_SaveSystem.LoadTexture();
-        if (loaded != null)
-        {
-            Sprite NS = Sprite.Create(loaded, new Rect(0, 0, loaded.width, loaded.height), new Vector2(0.5f, 0.5f));
-            gallery.AddToGallery(NS);
-        }
-
-        /*
+    {/*
         //Search a save file of type .gvs to load
         AppData data = CS_SaveSystem.LoadAppData();        
 
         //If there is a save file, loads it
         if (data != null)
         {
-            //Loads the gallery data
-            foreach (var sc in data.galleryItems)
-            {
-                if (sc != null)
-                {
-                    Texture2D tex = new Texture2D(sc.width, sc.height, sc.format, false);
-                    tex.LoadRawTextureData(sc.data);
-                    tex.Apply();
+            Debug.Log("LoadSettings");
 
-                    Sprite screenshotSprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
-                    gallery.AddToGallery(screenshotSprite);
-                }
-            }
-
-            Loads the audio system data
-            CS_AudioManager.instance.musicSource.mute = data.musicOn;
+            //Loads the audio system data
+            CS_AudioManager.instance.musicSource.mute = !data.musicOn;
             CS_AudioManager.instance.musicSource.volume = data.musicVolume;
             _musicToggle.isOn = data.musicOn;
             _musicSlider.value = data.musicVolume;
-            CS_AudioManager.instance.sfxSource.mute = data.sfxOn;
+            CS_AudioManager.instance.sfxSource.mute = !data.sfxOn;
             CS_AudioManager.instance.sfxSource.volume = data.sfxVolume;
             _sfxToggle.isOn = data.sfxOn;
-            _sfxSlider.value = data.sfxVolume;        
-        }*/
+            _sfxSlider.value = data.sfxVolume;
+        }
+        else
+        {
+            Debug.Log("Not data");
+        }
+        */
+        //Loads the gallery
+        for(int i = 0; i <= 23; i++)
+        {
+            Texture2D loaded = CS_SaveSystem.LoadTexture(i);
+            if (loaded != null)
+            {
+                Sprite NS = Sprite.Create(loaded, new Rect(0, 0, loaded.width, loaded.height), new Vector2(0.5f, 0.5f));
+                gallery.AddToGallery(NS);
+                Debug.Log("Loaded " + i);
+            }
+            else
+            {
+                Debug.Log("NotFound");
+            }
+        }
     }
 
     //Starts the AR experience
@@ -158,7 +161,7 @@ public class CS_GeneralManager : MonoBehaviour
 
         showScreenshot.enabled = true;
         showScreenshot.sprite = screenshotSprite;
-        Save(newScreenshot);
+        Save(newScreenshot, gallery.galleryCount);
 
         yield return new WaitForSeconds(2);
 
