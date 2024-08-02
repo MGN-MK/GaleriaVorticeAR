@@ -18,6 +18,16 @@ public class CS_GeneralManager : MonoBehaviour
     public TextMeshProUGUI titletxt, yeartxt, artisttxt, techniquetxt, sizetxt;
     [SerializeField] Image showScreenshot;
 
+    public Animator open, menuAR;
+    private bool isOpen = false;
+
+    public void OpenMenu()
+    {
+        isOpen = !isOpen;
+        open.SetBool("Open?", isOpen);
+        menuAR.SetBool("Open?", isOpen);
+    }
+
     private CS_ArtInfo selectedArt;
 
     //If there is no General Manager, add this, otherwise, destroy this

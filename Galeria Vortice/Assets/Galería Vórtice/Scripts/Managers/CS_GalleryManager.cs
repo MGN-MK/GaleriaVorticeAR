@@ -14,7 +14,7 @@ public class CS_GalleryManager : MonoBehaviour
     [SerializeField] Image showScreenshot;
     public int galleryCount = 0;
     private int index = 0;
-    private GameObject item;
+    private GameObject item;    
 
     public void AddToGallery(Sprite _screenshot)
     {
