@@ -1,3 +1,4 @@
+using Assets.SimpleLocalization.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -41,8 +42,19 @@ public class CS_CatalogueManager : MonoBehaviour
         titletxt.text = currentArt.title;
         yeartxt.text = currentArt.year.ToString();
         artisttxt.text = currentArt.artist.ToString().Replace("_", " ");
-        techniquetxt.text = currentArt.technique.ToString().Replace("_", " ");
-        sizetxt.text = currentArt.sizes[0].x + " cm x " + currentArt.sizes[0].y + " cm";
+        techniquetxt.gameObject.GetComponent<LocalizedText>().LocalizationKey = currentArt.technique.ToString();
+
+        if (CS_MultilanguajeManager.instance.currentLanguaje == "Spanish")
+        {
+            sizetxt.text = currentArt.sizes[0].x + " cm x " + currentArt.sizes[0].y + " cm";
+        } else if (CS_MultilanguajeManager.instance.currentLanguaje == "English")
+        {
+            sizetxt.text = (currentArt.sizes[0].x / 2.54f).ToString("F2") + " in x " + (currentArt.sizes[0].y / 2.54f).ToString("F2") + " in";
+        }
+        else
+        {
+            sizetxt.text = currentArt.sizes[0].x + " cm x " + currentArt.sizes[0].y + " cm";
+        }
 
         //Update IMG sprite
         image.GetComponent<Image>().sprite = currentArt.img;

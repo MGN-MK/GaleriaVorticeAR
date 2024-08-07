@@ -1,3 +1,4 @@
+using Assets.SimpleLocalization.Scripts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,6 +21,11 @@ public class CS_GeneralManager : MonoBehaviour
 
     public Animator open, menuAR;
     private bool isOpen = false;
+
+    public void OpenURL(string url)
+    {
+        Application.OpenURL(url);
+    }
 
     public void OpenMenu()
     {
@@ -110,12 +116,22 @@ public class CS_GeneralManager : MonoBehaviour
         if (selectedArt != null)
         {
             //Update the text data to show
-            titletxt.text = "Título: " + selectedArt.title;
-            yeartxt.text = "Año: " + selectedArt.year.ToString();
-            artisttxt.text = "Artista: " + selectedArt.artist.ToString().Replace("_", " ");
-            techniquetxt.text = "Técnica: " + selectedArt.technique.ToString().Replace("_", " ");
-            sizetxt.text = "Tamaño: " + selectedArt.sizes[0].x + " cm x " + selectedArt.sizes[0].y + " cm";
-            sizetxt.text = "Tamaño: " + selectedArt.sizes[0].x + " cm x " + selectedArt.sizes[0].y + " cm";
+            titletxt.text = selectedArt.title;
+            yeartxt.text = selectedArt.year.ToString();
+            artisttxt.text = selectedArt.artist.ToString().Replace("_", " ");
+            techniquetxt.gameObject.GetComponent<LocalizedText>().LocalizationKey = selectedArt.technique.ToString();
+
+            if(CS_MultilanguajeManager.instance.currentLanguaje == "Spanish")
+            {
+                sizetxt.text = selectedArt.sizes[0].x + " cm x " + selectedArt.sizes[0].y + " cm";
+            } else if(CS_MultilanguajeManager.instance.currentLanguaje == "English")
+            {
+                sizetxt.text = (selectedArt.sizes[0].x/2.54f).ToString("F2") + " in x " + (selectedArt.sizes[0].y/2.54f).ToString("F2") + " in";
+            }
+            else
+            {
+                sizetxt.text = selectedArt.sizes[0].x + " cm x " + selectedArt.sizes[0].y + " cm";
+            }          
         }
 
         //Set scale of the canvas object with the size of the selected art
@@ -140,6 +156,10 @@ public class CS_GeneralManager : MonoBehaviour
                 _menu.SetActive(false);
             }
         }
+
+        isOpen = false;
+        open.SetBool("Open?", isOpen);
+        menuAR.SetBool("Open?", isOpen);
     }
 
     //Takes a screenshot

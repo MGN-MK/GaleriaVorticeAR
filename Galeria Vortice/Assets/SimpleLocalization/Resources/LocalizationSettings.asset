@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63817d93022759543b57e795c78efe11, type: 3}
+  m_Name: LocalizationSettings
+  m_EditorClassIdentifier: 
+  TableId: 182JOtGnyzQqCutc3yri97fvbyAhmnrwq8QWS81Ws1lI
+  Sheets:
+  - Name: UI Labels
+    Id: 0
+    TextAsset: {fileID: 4900000, guid: 574f9e4425ba59d42a8f30e01ae1e83d, type: 3}
+  - Name: Techniques
+    Id: 1525393086
+    TextAsset: {fileID: 4900000, guid: 2e625a27ea66ff641aec7514fadf4294, type: 3}
+  SaveFolder: {fileID: 102900000, guid: 0b59d6ab2d7466b4ab69d9e01e00d0c0, type: 3}
