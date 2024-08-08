@@ -5,7 +5,7 @@ Galería Vórtice // Montserrat Godinez Núñez // Parcial 02 // 08-07-2024
 Esta es una app para la Galería Vórtice de realidad aumentada, dentro de la cual se puede acceder a un catálogo de obras con la información de las mismas, estas verlas con realidad aumentada dentro de tu espacio (Se requieren permiso para acceder a la cámara).
 
 <aside>
-⚠️ Esta app de momento solo está disponible como **apk** , por lo que funciona únicamente en dispositivos **Android 8.0 Oreo API level 26** o superior.
+⚠️ Esta app de momento solo está disponible como **apk**, por lo que funciona únicamente en dispositivos A**ndroid 8.0 ‘Oreo’ API level 26** o superior.
 
 </aside>
 
@@ -19,9 +19,11 @@ Esta es una app para la Galería Vórtice de realidad aumentada, dentro de la cu
 - [Catálogo](https://www.notion.so/Cat-logo-ee59ef5f405f42ab9343dbb2b7dd683d?pvs=21)
 - [Galería](https://www.notion.so/Galer-a-87bb9106565e4b78a592917d9bdfd599?pvs=21)
 - [Ajustes](https://www.notion.so/Ajustes-7ab1b017d66a4a3192c9ce285bab0db3?pvs=21)
+- [Contacto](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21)
+- [Créditos](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21)
 - [Salir](https://www.notion.so/Salir-f60bea4cd6d74b37968f9df384c64bf9?pvs=21)
 - [Experiencia en Realidad Aumentada](https://www.notion.so/Experiencia-en-Realidad-Aumentada-887bdf27f6894253958ad4531ea4d53a?pvs=21)
-- [Native Gallery](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21)
+- [[Native Gallery](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21)](https://www.notion.so/Native-Gallery-8d068ee1f9fd4651bd39e8cf737e931b?pvs=21)
     - [Guardar las capturas de pantalla en el dispositivo.](https://www.notion.so/Guardar-las-capturas-de-pantalla-en-el-dispositivo-95f36c597fd64259a65e845aed4517ac?pvs=21)
 - [Sistema de Sonido](https://www.notion.so/Sistema-de-Sonido-f4f6183c75464146b93f200a7c2bc6f9?pvs=21)
     - [Lista de Música y Efectos de Sonido](https://www.notion.so/Lista-de-M-sica-y-Efectos-de-Sonido-a341b01984c043cbace1b4451eccf233?pvs=21)
@@ -51,7 +53,7 @@ Esta es una app para la Galería Vórtice de realidad aumentada, dentro de la cu
     
 - Ajustes de música y efectos de sonido.
     
-    Uso de un Audio Manager.
+    Uso de un Audio Manager**.**
     
 - Botón para cerrar la aplicación.
 
@@ -61,7 +63,11 @@ Esta es una app para la Galería Vórtice de realidad aumentada, dentro de la cu
 
 # Instalación
 
-- Descarga en tu dispositivo **Android** el apk “GaleríaVórticeAR.apk”, el cual lo encontrarás en el repositorio GaleriaVorticeAR.
+- Descarga en tu dispositivo **Android** el apk “GaleríaAR.apk”, el cual lo encontrarás en la página de Itch.io:
+
+[Galería AR by MGN_MK (itch.io)](https://mgn-mk.itch.io/galeria-ar)
+
+- En su defecto, puedes encontrar el apk en el repositorio GaleriaVorticeAR.
 
 [https://github.com/MGN-MK/GaleriaVorticeAR.git](https://github.com/MGN-MK/GaleriaVorticeAR.git)
 
@@ -107,7 +113,9 @@ Al abrir la aplicación encontrarás el menú principal donde podrás acceder al
 1. [Catálogo](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21). En este menú podrás navegar entre las obras disponibles y su información correspondiente.
 2. [Galería](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21). En este menú encontrarás las capturas de pantalla que tomaste desde la propia aplicación.
 3. [Ajustes](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21). En este menú podrás ajustar la música y los efectos de sonido.
-4. [Salir](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21). Con este botón cerrarás la aplicación.
+4. [Contacto](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21). En este menú encontrarás botones que te llevaran al contacto de la Galería. (Whatsapp, Instagram, Maps, y Página Web).
+5. [Créditos](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21). En este menú encontrarás los créditos de la aplicación.
+6. [Salir](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21). Con este botón cerrarás la aplicación.
 
 ---
 
@@ -151,6 +159,27 @@ En este menú podrás ajustar la música y los efectos de sonido. Aquí encontr�
 1. [Regreso al Menú Principal.](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21)
 2. Activar y desactivar la música o los efectos de sonido.
 3. Ajustar el volumen de la música o los efectos de sonido con un slider, la forma en que este lo ajusta es de forma exponencial.
+4. Cambiar el idioma entre Español e Inglés. También cambia las unidades de las medidas de las obras de centímetros a pulgadas, respectivamente.
+
+---
+
+# Contacto
+
+En este menú encontrarás botones que te llevaran al contacto de la Galería. Aquí encontrás:
+
+1. [Regreso al Menú Principal.](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21)
+2.  Whatsapp, Instagram, Maps, y Página Web.
+
+---
+
+# Créditos
+
+En este menú encontrarás los créditos de la aplicación.. Aquí encontrás:
+
+1. [Regreso al Menú Principal.](https://www.notion.so/Galer-a-V-rtice-App-de-Realidad-Aumentada-21771a007c994be886a5254db0c9ee02?pvs=21)
+2. Créditos de programación, música de fondo y efectos de sonido.
+3. Motor de videojuegos y plug in utilizados.
+4. Versión de la aplicación.
 
 ---
 
